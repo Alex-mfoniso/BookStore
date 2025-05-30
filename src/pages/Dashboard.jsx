@@ -1,159 +1,26 @@
-// import React from "react";
-// import MyReview from "../pages/MyReview";
-// import {
-//   Layout,
-//   Menu,
-//   Card,
-//   Row,
-//   Col,
-//   Typography,
-//   Statistic,
-//   Avatar,
-// } from "antd";
-// import {
-//   DashboardOutlined,
-//   BookOutlined,
-//   StarOutlined,
-//   DollarOutlined,
-//   UserOutlined,
-//   ShoppingCartOutlined,
-//   HeartOutlined,
-//   LockOutlined,
-// } from "@ant-design/icons";
-// import BookRecommendation from "./BookRecommendation";
-// // import './App.css';
-
-// const { Header, Content, Sider } = Layout;
-// const { Title, Text } = Typography;
-
-// const Dashboard = () => {
-//   return (
-//     <Layout style={{ minHeight: "100vh" }}>
-//       <Sider breakpoint="lg" collapsedWidth="0">
-//         <div className="logo">
-//           <Title level={3} style={{ color: "white", padding: "16px" }}>
-//             Muse Dashboard
-//           </Title>
-//         </div>
-//         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-//           <Menu.Item key="1" icon={<DashboardOutlined />}>
-//             Dashboard
-//           </Menu.Item>
-//           <Menu.Item key="2" icon={<BookOutlined />}>
-//             Book Recommendations
-//           </Menu.Item>
-//           <Menu.Item key="3" icon={<StarOutlined />}>
-//             Reviews
-//           </Menu.Item>
-//         </Menu>
-//       </Sider>
-//       <Layout>
-//         <Header
-//           style={{
-//             background: "#fff",
-//             padding: 0,
-//             textAlign: "right",
-//             paddingRight: "20px",
-//           }}
-//         >
-//           <Text strong>
-//             <UserOutlined /> Sign in
-//           </Text>
-//         </Header>
-//         <Content style={{ margin: "24px 16px 0" }}>
-//           <Row gutter={16}>
-//             <Col span={6}>
-//               <Card>
-//                 <Statistic
-//                   title="Today's Sales"
-//                   value={53000}
-//                   prefix={<DollarOutlined />}
-//                   valueStyle={{ color: "#3f8600" }}
-//                   suffix="+30%"
-//                 />
-//               </Card>
-//             </Col>
-//             <Col span={6}>
-//               <Card>
-//                 <Statistic
-//                   title="Today's Users"
-//                   value={3200}
-//                   prefix={<UserOutlined />}
-//                   valueStyle={{ color: "#3f8600" }}
-//                   suffix="+20%"
-//                 />
-//               </Card>
-//             </Col>
-//             <Col span={6}>
-//               <Card>
-//                 <Statistic
-//                   title="New Clients"
-//                   value={1200}
-//                   prefix={<HeartOutlined />}
-//                   valueStyle={{ color: "#cf1322" }}
-//                   suffix="-20%"
-//                 />
-//               </Card>
-//             </Col>
-//             <Col span={6}>
-//               <Card>
-//                 <Statistic
-//                   title="New Orders"
-//                   value={13200}
-//                   prefix={<ShoppingCartOutlined />}
-//                   valueStyle={{ color: "#3f8600" }}
-//                   suffix="+10%"
-//                 />
-//               </Card>
-//             </Col>
-//           </Row>
-//           <div style={{ marginTop: 24 }}>
-//             <Card title="Active Users">
-//               <Text>+30% from last week</Text>
-//               {/* Placeholder for charts */}
-//               <div
-//                 style={{
-//                   height: 200,
-//                   backgroundColor: "#f0f2f5",
-//                   marginTop: 16,
-//                 }}
-//               >
-//                 <Text type="secondary">[Chart Placeholder]</Text>
-//               </div>
-//             </Card>
-//           </div>
-
-//           <MyReview bookId="12345" />
-//           {/* <BookRecommendation productId={102}/> */}
-//         </Content>
-//       </Layout>
-//     </Layout>
-//   );
-// };
-
-// export default Dashboard;
-
-import React, { useState } from 'react';
-import { 
-  Layout, 
-  Menu, 
-  Input, 
-  Badge, 
-  Dropdown, 
-  Avatar, 
-  Space, 
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import BookRecommendation from "./BookRecommendation";
+import {
+  Layout,
+  Menu,
+  Input,
+  Badge,
+  Dropdown,
+  Avatar,
+  Space,
   Button,
   message,
   Card,
   Row,
   Col,
   Statistic,
-  Typography
-} from 'antd';
-import { 
-  SettingOutlined, 
-  BellOutlined, 
-  SearchOutlined, 
+  Typography,
+} from "antd";
+import {
+  SettingOutlined,
+  BellOutlined,
+  SearchOutlined,
   LogoutOutlined,
   UserOutlined,
   DashboardOutlined,
@@ -164,8 +31,10 @@ import {
   BookOutlined,
   StarOutlined,
   LikeOutlined,
-  AppstoreOutlined
-} from '@ant-design/icons';
+  AppstoreOutlined,
+} from "@ant-design/icons";
+import Composite from "./composite";
+// import { useNavigate } from 'react-router-dom';
 
 const { Header, Sider, Content } = Layout;
 const { Search } = Input;
@@ -177,31 +46,43 @@ const NavBar = () => {
   const [notificationCount, setNotificationCount] = useState(3);
 
   const notifications = [
-    { id: 1, title: 'New message', description: 'You have a new message from John' },
-    { id: 2, title: 'System update', description: 'System will be updated at 3:00 AM' },
-    { id: 3, title: 'Reminder', description: 'Meeting with team at 10:00 AM' },
+    {
+      id: 1,
+      title: "New message",
+      description: "You have a new message from John",
+    },
+    {
+      id: 2,
+      title: "System update",
+      description: "System will be updated at 3:00 AM",
+    },
+    { id: 3, title: "Reminder", description: "Meeting with team at 10:00 AM" },
   ];
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const handleLogout = () => {
-    message.success('Logged out successfully!');
-    console.log('User logged out');
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("user");
+    message.success("Logged out successfully!");
+    navigate("/login"); // Use navigate to redirect to the login page
   };
 
   const handleSearch = (value) => {
     message.info(`Searching for: ${value}`);
-    console.log('Search:', value);
+    console.log("Search:", value);
   };
 
   const handleNotificationClick = () => {
     setNotificationCount(0);
-    message.info('Notifications marked as read');
+    message.info("Notifications marked as read");
   };
 
   const notificationMenu = (
     <Menu>
-      {notifications.map(item => (
+      {notifications.map((item) => (
         <Menu.Item key={item.id}>
-          <div style={{ padding: '8px 12px' }}>
+          <div style={{ padding: "8px 12px" }}>
             <strong>{item.title}</strong>
             <p style={{ margin: 0 }}>{item.description}</p>
           </div>
@@ -223,24 +104,28 @@ const NavBar = () => {
   );
 
   return (
-    <Header 
-      style={{ 
-        background: '#fff', 
-        padding: '0 24px', 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-        position: 'sticky',
+    <Header
+      style={{
+        background: "#fff",
+        padding: "0 24px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+        position: "sticky",
         top: 0,
         zIndex: 1,
         height: 64,
         gap: 16,
       }}
     >
-      <div style={{ fontWeight: 'bold', fontSize: '1.4rem', userSelect: 'none' }}>BookStore</div>
-      
-      <Space size="middle" align="center" style={{ flexWrap: 'nowrap' }}>
+      <div
+        style={{ fontWeight: "bold", fontSize: "1.4rem", userSelect: "none" }}
+      >
+        BookStore
+      </div>
+
+      <Space size="middle" align="center" style={{ flexWrap: "nowrap" }}>
         {searchVisible ? (
           <Search
             placeholder="Search..."
@@ -252,43 +137,43 @@ const NavBar = () => {
             onBlur={() => setSearchVisible(false)}
           />
         ) : (
-          <Button 
-            type="text" 
-            icon={<SearchOutlined />} 
+          <Button
+            type="text"
+            icon={<SearchOutlined />}
             onClick={() => setSearchVisible(true)}
-            style={{ color: 'inherit' }}
+            style={{ color: "inherit" }}
           />
         )}
 
-        <Dropdown 
-          overlay={notificationMenu} 
-          placement="bottomRight" 
-          trigger={['click']}
+        <Dropdown
+          overlay={notificationMenu}
+          placement="bottomRight"
+          trigger={["click"]}
         >
           <Badge count={notificationCount} overflowCount={9} offset={[0, 4]}>
-            <Button 
-              type="text" 
-              icon={<BellOutlined />} 
+            <Button
+              type="text"
+              icon={<BellOutlined />}
               onClick={handleNotificationClick}
-              style={{ color: 'inherit' }}
+              style={{ color: "inherit" }}
             />
           </Badge>
         </Dropdown>
 
         <Dropdown overlay={settingsMenu} placement="bottomRight">
-          <Button 
-            type="text" 
-            icon={<SettingOutlined />} 
-            style={{ color: 'inherit' }}
+          <Button
+            type="text"
+            icon={<SettingOutlined />}
+            style={{ color: "inherit" }}
           />
         </Dropdown>
 
         <Dropdown
           overlay={
             <Menu>
-              <Menu.Item 
-                key="logout" 
-                icon={<LogoutOutlined />} 
+              <Menu.Item
+                key="logout"
+                icon={<LogoutOutlined />}
                 onClick={handleLogout}
                 danger
               >
@@ -298,9 +183,9 @@ const NavBar = () => {
           }
           placement="bottomRight"
         >
-          <Avatar 
-            icon={<UserOutlined />} 
-            style={{ cursor: 'pointer', backgroundColor: '#1890ff' }}
+          <Avatar
+            icon={<UserOutlined />}
+            style={{ cursor: "pointer", backgroundColor: "#1890ff" }}
           />
         </Dropdown>
       </Space>
@@ -311,54 +196,64 @@ const NavBar = () => {
 // Dashboard Layout
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate()
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       {/* Sidebar */}
-      <Sider 
-        collapsible 
-        collapsed={collapsed} 
+      <Sider
+        collapsible
+        collapsed={collapsed}
         onCollapse={() => setCollapsed(!collapsed)}
         width={250}
         style={{
-          background: '#fff',
-          boxShadow: '2px 0 8px rgba(0, 0, 0, 0.1)',
+          background: "#fff",
+          boxShadow: "2px 0 8px rgba(0, 0, 0, 0.1)",
           zIndex: 1,
           paddingTop: 12,
           paddingBottom: 12,
-          overflowY: 'auto'
+          overflowY: "auto",
         }}
       >
-        <div 
-          style={{ 
-            height: 64, 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            padding: '0 24px',
+        <div
+          style={{
+            height: 64,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 24px",
             marginBottom: 12,
-            borderBottom: '1px solid #f0f0f0',
-            userSelect: 'none'
+            borderBottom: "1px solid #f0f0f0",
+            userSelect: "none",
           }}
         >
           {!collapsed ? (
-            <Title level={4} style={{ color: '#1890ff', margin: 0 }}>My Dashboard</Title>
+            <Title level={4} style={{ color: "#1890ff", margin: 0 }}>
+              My Dashboard
+            </Title>
           ) : (
-            <DashboardOutlined style={{ fontSize: 28, color: '#1890ff' }} />
+            <DashboardOutlined style={{ fontSize: 28, color: "#1890ff" }} />
           )}
         </div>
         <Menu
           theme="light"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={["1"]}
           mode="inline"
           style={{ borderRight: 0 }}
           inlineIndent={16}
           itemIconSize={24}
         >
-          <Menu.Item key="1" icon={<DashboardOutlined style={{ fontSize: 20 }} />}>
+          <Menu.Item
+            key="1"
+            icon={<DashboardOutlined style={{ fontSize: 20 }} />}
+          >
             Dashboard
           </Menu.Item>
-          <Menu.Item key="2" icon={<BookOutlined style={{ fontSize: 20 }} />}>
+          <Menu.Item
+            key="2"
+            icon={<BookOutlined style={{ fontSize: 20 }} />}
+            onClick={() => navigate("/recommendation")} // Navigate to BookRecommendation page
+          >
             Books
           </Menu.Item>
           <Menu.Item key="3" icon={<StarOutlined style={{ fontSize: 20 }} />}>
@@ -367,7 +262,10 @@ const Dashboard = () => {
           <Menu.Item key="4" icon={<LikeOutlined style={{ fontSize: 20 }} />}>
             Recommendations
           </Menu.Item>
-          <Menu.Item key="5" icon={<AppstoreOutlined style={{ fontSize: 20 }} />}>
+          <Menu.Item
+            key="5"
+            icon={<AppstoreOutlined style={{ fontSize: 20 }} />}
+          >
             Composite
           </Menu.Item>
           <Menu.Item key="6" icon={<TeamOutlined style={{ fontSize: 20 }} />}>
@@ -384,52 +282,50 @@ const Dashboard = () => {
         <NavBar />
 
         {/* Content Area */}
-        <Content 
-          style={{ 
-            margin: '24px 16px', 
-            padding: 24, 
-            background: '#fff', 
+        <Content
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            background: "#fff",
             minHeight: 280,
             borderRadius: 6,
-            boxShadow: '0 1px 4px rgb(0 21 41 / 8%)'
+            boxShadow: "0 1px 4px rgb(0 21 41 / 8%)",
           }}
         >
-          <Title level={2} style={{ marginBottom: 24 }}>Dashboard Overview</Title>
-          
+          <Title level={2} style={{ marginBottom: 24 }}>
+            Dashboard Overview
+          </Title>
+
           {/* Sample Dashboard Cards */}
           <Row gutter={[16, 16]} style={{ marginBottom: 32 }}>
             <Col xs={24} sm={12} md={6}>
               <Card bordered hoverable>
-                <Statistic 
-                  title="Total Users" 
-                  value={1128} 
+                <Statistic
+                  title="Total Users"
+                  value={1128}
                   prefix={<TeamOutlined />}
                 />
               </Card>
             </Col>
             <Col xs={24} sm={12} md={6}>
               <Card bordered hoverable>
-                <Statistic 
-                  title="Total Orders" 
-                  value={543} 
+                <Statistic
+                  title="Total Orders"
+                  value={543}
                   prefix={<ShoppingCartOutlined />}
                 />
               </Card>
             </Col>
             <Col xs={24} sm={12} md={6}>
               <Card bordered hoverable>
-                <Statistic 
-                  title="Revenue" 
-                  value={8846} 
-                  prefix="$"
-                />
+                <Statistic title="Revenue" value={8846} prefix="$" />
               </Card>
             </Col>
             <Col xs={24} sm={12} md={6}>
               <Card bordered hoverable>
-                <Statistic 
-                  title="Active Projects" 
-                  value={28} 
+                <Statistic
+                  title="Active Projects"
+                  value={28}
                   prefix={<FileOutlined />}
                 />
               </Card>
@@ -439,7 +335,11 @@ const Dashboard = () => {
           {/* Main Content Area */}
           <Card title="Recent Activity" style={{ borderRadius: 6 }}>
             <p style={{ marginBottom: 12 }}>Dashboard content goes here...</p>
-            <p style={{ marginBottom: 0 }}>You can add charts, tables, or other components.</p>
+            <p style={{ marginBottom: 0 }}>
+              You can add charts, tables, or other components.
+            </p>
+            <BookRecommendation />
+            {/* <Composite/> */}
           </Card>
         </Content>
       </Layout>

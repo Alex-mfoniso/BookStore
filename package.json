@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tsola2002/book-services-group-c.git"},
   "dependencies": {
     "antd": "^5.25.2",
     "axios": "^1.9.0",
