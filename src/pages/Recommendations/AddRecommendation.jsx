@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Form, Input, Button, Rate, message } from "antd";
 
-const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendation";
+const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
 
 const AddRecommendation = () => {
   const [loading, setLoading] = useState(false);

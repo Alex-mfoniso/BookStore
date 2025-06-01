@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, Input, Button, Typography, message } from "antd";
+import { Form, Input, Button, message } from "antd";
 
-const { Title } = Typography;
 const BASE_URL = "https://book-service-flbm.onrender.com/api/v1/books";
 
-const DelBook = () => {
+const Delrevid = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
     const { bookId } = values;
     setLoading(true);
     try {
-      const response = await axios.delete(`${BASE_URL}/${bookId}`, {
+      console.log(`Sending DELETE request for Book ID: ${bookId}`);
+      const response = await axios.delete(`${BASE_URL}/book/${bookId}`, {
         headers: { "Content-Type": "application/json" },
       });
+      console.log("Response:", response);
       if (response.status === 200) {
-        message.success(`Book with ID ${bookId} deleted successfully!`);
-        console.log("Deleted Book:", response.data);
+        message.success(`Reviews for Book ID ${bookId} deleted successfully!`);
       } else {
-        message.error("Failed to delete book. Please check the Book ID.");
+        message.error("Failed to delete reviews. Please check the Book ID.");
       }
     } catch (error) {
-      console.error("Error deleting book:", error);
-      message.error(
-        error?.response?.data?.message || "Failed to delete book. Please try again."
-      );
+      console.error("Error deleting reviews:", error);
+      const errorMessage =
+        error?.response?.data?.message || "Failed to delete reviews. Please try again.";
+      message.error(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -33,7 +33,7 @@ const DelBook = () => {
 
   return (
     <div style={{ maxWidth: 600, margin: "0 auto", paddingTop: 40 }}>
-      <Title level={3}>Delete Book</Title>
+      <h2>Delete Reviews by Book ID</h2>
       <Form layout="vertical" onFinish={onFinish} style={{ marginTop: 24 }}>
         <Form.Item
           label="Book ID"
@@ -42,9 +42,10 @@ const DelBook = () => {
         >
           <Input type="number" placeholder="Enter Book ID" />
         </Form.Item>
+
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Delete Book
+            Delete Reviews
           </Button>
         </Form.Item>
       </Form>
@@ -52,4 +53,4 @@ const DelBook = () => {
   );
 };
 
-export default DelBook;
+export default Delrevid;

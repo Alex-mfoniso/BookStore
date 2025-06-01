@@ -3,23 +3,22 @@ import axios from "axios";
 import { Form, Input, Button, Typography, message } from "antd";
 
 const { Title } = Typography;
-const BASE_URL = "https://book-service-flbm.onrender.com/api/v1/books";
+const BASE_URL = "https://review-service-428s.onrender.com/reviews";
 
-const UpdBook = () => {
+const PostReview = () => {
   const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
-    const { bookId, name, weight } = values;
     setLoading(true);
     try {
-      const response = await axios.put(`${BASE_URL}/${bookId}`, { name, weight }, {
+      const response = await axios.post(BASE_URL, values, {
         headers: { "Content-Type": "application/json" },
       });
-      message.success(`Book with ID ${bookId} updated successfully!`);
-      console.log("Updated Book:", response.data);
+      message.success("Review created successfully!");
+      console.log("Created Review:", response.data);
     } catch (error) {
-      console.error(error);
-      message.error("Failed to update book. Please try again.");
+      console.error("Error creating review:", error);
+      message.error("Failed to create review. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -27,7 +26,7 @@ const UpdBook = () => {
 
   return (
     <div style={{ maxWidth: 600, margin: "0 auto", paddingTop: 40 }}>
-      <Title level={3}>Update Book</Title>
+      <Title level={3}>Create a New Review</Title>
       <Form layout="vertical" onFinish={onFinish} style={{ marginTop: 24 }}>
         <Form.Item
           label="Book ID"
@@ -37,22 +36,22 @@ const UpdBook = () => {
           <Input type="number" placeholder="Enter Book ID" />
         </Form.Item>
         <Form.Item
-          label="Book Name"
-          name="name"
-          rules={[{ required: true, message: "Please enter the book name" }]}
+          label="Reviewer Name"
+          name="reviewer"
+          rules={[{ required: true, message: "Please enter the Reviewer Name" }]}
         >
-          <Input placeholder="Enter Book Name" />
+          <Input placeholder="Enter Reviewer Name" />
         </Form.Item>
         <Form.Item
-          label="Weight"
-          name="weight"
-          rules={[{ required: true, message: "Please enter the book weight" }]}
+          label="Comment"
+          name="comment"
+          rules={[{ required: true, message: "Please enter the review comment" }]}
         >
-          <Input placeholder="Enter Book Weight (e.g., 1.2kg)" />
+          <Input.TextArea placeholder="Enter Review Comment" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Update Book
+            Create Review
           </Button>
         </Form.Item>
       </Form>
@@ -60,4 +59,4 @@ const UpdBook = () => {
   );
 };
 
-export default UpdBook;
+export default PostReview;
