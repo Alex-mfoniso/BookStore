@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Menu, Typography } from "antd";
 import {
   DashboardOutlined,
@@ -14,14 +14,15 @@ import { useNavigate } from "react-router-dom";
 const { Sider } = Layout;
 const { Title } = Typography;
 
-const Sidebar = ({ collapsed, onCollapse }) => {
+const Sidebar = () => {
+  const [collapsed, setCollapsed] = useState(false); // State to manage collapse
   const navigate = useNavigate();
 
   return (
     <Sider
       collapsible
       collapsed={collapsed}
-      onCollapse={onCollapse}
+      onCollapse={(value) => setCollapsed(value)} // Update collapse state
       width={250}
       style={{
         background: "#fff",
