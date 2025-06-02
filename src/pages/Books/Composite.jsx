@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { List, Typography, Card, message, Spin } from "antd";
-import ComId from "./comid";
+import ComId from "./Comid";
 
 const { Title } = Typography;
 const BASE_URL = "https://book-composite.onrender.com/api/v1/book-aggregates";
