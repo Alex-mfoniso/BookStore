@@ -28,7 +28,8 @@ import DelBook from "./DelBook";
 
 import MainBook from "./MainBook";
 import { Row, Col, Card, Typography } from "antd";
-import ComId from "./ComId";
+import Getbyid from "./Getbyid";
+// import ComId from "./ComId";
 
 const { Title } = Typography;
 
@@ -53,7 +54,8 @@ const Book = () => {
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card title="Composite ID" bordered>
-         <ComId/>
+         {/* <ComId/> */}
+         <Getbyid/>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>
