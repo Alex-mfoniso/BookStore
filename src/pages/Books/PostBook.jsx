@@ -58,9 +58,9 @@ import React from "react";
 import PostBook from "./PostBook";
 import UpdBook from "./UpdBook";
 import DelBook from "./DelBook";
-import ComId from "./ComId";
 import MainBook from "./MainBook";
 import { Row, Col, Card, Typography } from "antd";
+import Getbyid from "./Getbyid";
 
 const { Title } = Typography;
 
@@ -85,7 +85,7 @@ const Book = () => {
         </Col>
         <Col xs={24} sm={12} md={8}>
           <Card title="Composite ID" bordered>
-            <ComId />
+          <Getbyid/>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={8}>

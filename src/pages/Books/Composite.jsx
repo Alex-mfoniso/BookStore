@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { List, Typography, Card, message, Spin } from "antd";
-import ComId from "./Comid";
+import Getbyid from "./Getbyid";
+
 
 const { Title } = Typography;
 const BASE_URL = "https://book-composite.onrender.com/api/v1/book-aggregates";
@@ -83,7 +84,7 @@ const Composite = () => {
           )}
         />
       )}
-      <ComId/>
+    <Getbyid/>
     </div>
   );
 };
