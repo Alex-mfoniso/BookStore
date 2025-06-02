@@ -5,7 +5,7 @@ import ProtectedRoute from "./router/ProtectedRoute";
 import BookRecommendation from "../src/pages/Recommendations/BookRecommendation";
 import MyReview from "./pages/Review/MyReview";
 import Book from "../src/pages/Books/Book";
-// import Composite from "../src/pages/Books/Composite";
+import Composite from "../src/pages/Books/Composite";//git get sense
 import NavBar from "../src/components/layout/NavBar"; // Import NavBar
 import Sidebar from "../src/components/layout/Sidebar"; // Import Sidebar
 
