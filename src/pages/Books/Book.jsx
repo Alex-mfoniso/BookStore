@@ -28,7 +28,7 @@ import DelBook from "./DelBook";
 
 import MainBook from "./MainBook";
 import { Row, Col, Card, Typography } from "antd";
-import ComId from "./Comid";
+import ComId from "./ComId";
 
 const { Title } = Typography;
 
