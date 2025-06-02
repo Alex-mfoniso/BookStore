@@ -70,6 +70,7 @@ import AddRecommendation from "./AddRecommendation";
 import GetRecommendationsByProduct from "./GetRecommendationsByProduct";
 import UpdateRecommendation from "./UpdateRecommendation";
 import DeleteRecommendation from "./DeleteRecommendation";
+import MainRecom from "./MainRecom";
 
 const { Title } = Typography;
 const BASE_URL =
@@ -117,10 +118,11 @@ const BookRecommendation = () => {
       />
 
       {/* Additional Components */}
-      <AddRecommendation/>
-      <GetRecommendationsByProduct />
-      <UpdateRecommendation />
-      <DeleteRecommendation />
+      {/* <AddRecommendation/> */}
+      <MainRecom/>
+      {/* <GetRecommendationsByProduct /> */}
+      {/* <UpdateRecommendation /> */}
+      {/* <DeleteRecommendation /> */}
     </div>
   );
 };
