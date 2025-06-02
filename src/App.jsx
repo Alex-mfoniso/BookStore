@@ -5,7 +5,7 @@ import ProtectedRoute from "./router/ProtectedRoute";
 import BookRecommendation from "../src/pages/Recommendations/BookRecommendation";
 import MyReview from "./pages/Review/MyReview";
 import Book from "../src/pages/Books/Book";
-import Composite from "../src/pages/Books/Composite";
+// import Composite from "../src/pages/Books/Composite";
 import NavBar from "../src/components/layout/NavBar"; // Import NavBar
 import Sidebar from "../src/components/layout/Sidebar"; // Import Sidebar
 
@@ -27,7 +27,7 @@ const App = () => {
           />
           <Route path="/review" element={<MyReview />} />
           <Route path="/book" element={<Book/>} />
-          <Route path="/composite" element={<Composite />} />
+          {/* <Route path="/composite" element={<Composite />} /> */}
           <Route path="/recommendation" element={<BookRecommendation />} />
           <Route path="*" element={<Login />} />
         </Routes>
