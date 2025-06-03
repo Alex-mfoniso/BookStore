@@ -56,7 +56,19 @@ const NavBar = ({ sidebarWidth }) => {
         transition: "left 0.3s ease", // Smooth transition when sidebar collapses
       }}
     >
-      <div style={{ fontWeight: "bold", fontSize: "1.4rem", whiteSpace: "nowrap" }}>BookStore</div>
+      <div
+  style={{
+    fontWeight: "bold",
+    fontSize: "1.6rem", // Slightly larger font size for emphasis
+    whiteSpace: "nowrap",
+    color: "#1890ff", // Added a primary color for better visibility
+    textShadow: "1px 1px 2px rgba(0, 0, 0, 0.2)", // Added subtle text shadow
+    padding: "0 10px", // Added padding for spacing
+    cursor: "pointer", // Added pointer cursor for interactivity
+  }}
+>
+  BookStore
+</div>
 
       {isMobile ? (
         <Dropdown

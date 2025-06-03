@@ -19,7 +19,7 @@
 //           setLoading(false);
 //           return;
 //         }
-  
+
 //         const response = await axios.get(`${BASE_URL}/${id}`); // Fetch recommendation details
 //         console.log("API Response:", response.data); // Debug API response
 //         const { productId, bookAuthor, rate, content } = response.data;
@@ -43,7 +43,7 @@
 //         setLoading(false);
 //       }
 //     };
-  
+
 //     fetchRecommendation();
 //   }, [id, form]);
 //   const onFinish = async (values) => {
@@ -86,11 +86,11 @@
 //         </Form.Item>
 
 //         <Form.Item
-//           label="Product ID"
+//           label="Book ID"
 //           name="productId"
-//           rules={[{ required: true, message: "Please enter the Product ID" }]}
+//           rules={[{ required: true, message: "Please enter the Book ID" }]}
 //         >
-//           <Input type="number" placeholder="Enter Product ID" />
+//           <Input type="number" placeholder="Enter Book ID" />
 //         </Form.Item>
 
 //         <Form.Item
@@ -136,7 +136,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify"; // Import toast from React-Toastify
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
-const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+const BASE_URL =
+  "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
 
 const UpdateRecommendation = () => {
   const [loading, setLoading] = useState(false);
@@ -170,7 +171,11 @@ const UpdateRecommendation = () => {
         console.error("Error fetching recommendation details:", error);
         if (error.response) {
           console.error("Server Response:", error.response.data);
-          toast.error(`Failed to load recommendation details: ${error.response.data.message || "Unknown error"}`);
+          toast.error(
+            `Failed to load recommendation details: ${
+              error.response.data.message || "Unknown error"
+            }`
+          );
         } else {
           toast.error("Failed to load recommendation details.");
         }
@@ -228,17 +233,19 @@ const UpdateRecommendation = () => {
         <Form.Item
           label="Recommendation ID"
           name="recommendationId"
-          rules={[{ required: true, message: "Please enter the Recommendation ID" }]}
+          rules={[
+            { required: true, message: "Please enter the Recommendation ID" },
+          ]}
         >
           <Input type="number" placeholder="Enter Recommendation ID" disabled />
         </Form.Item>
 
         <Form.Item
-          label="Product ID"
+          label="Book ID"
           name="productId"
-          rules={[{ required: true, message: "Please enter the Product ID" }]}
+          rules={[{ required: true, message: "Please enter the Book ID" }]}
         >
-          <Input type="number" placeholder="Enter Product ID" />
+          <Input type="number" placeholder="Enter Book ID" />
         </Form.Item>
 
         <Form.Item

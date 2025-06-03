@@ -1,11 +1,10 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Input, Button, List, Typography, message } from "antd";
 
 const { Title } = Typography;
-const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+const BASE_URL =
+  "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
 
 const GetRecommendationsByProduct = () => {
   const [productId, setProductId] = useState("");
@@ -30,7 +29,7 @@ const GetRecommendationsByProduct = () => {
 
   const onFinish = () => {
     if (!productId) {
-      message.error("Please enter a Product ID");
+      message.error("Please enter a Book ID");
       return;
     }
     fetchRecommendationsByProduct();
@@ -38,16 +37,16 @@ const GetRecommendationsByProduct = () => {
 
   return (
     <div style={{ maxWidth: 600, margin: "0 auto", paddingTop: 40 }}>
-      <Title level={3}>Get Recommendations by Product ID</Title>
+      <Title level={3}>Get Recommendations by Book ID</Title>
 
       <Form layout="vertical" onFinish={onFinish} style={{ marginTop: 24 }}>
         <Form.Item
-          label="Product ID"
-          rules={[{ required: true, message: "Please enter the Product ID" }]}
+          label="Book ID"
+          rules={[{ required: true, message: "Please enter the Book ID" }]}
         >
           <Input
             type="number"
-            placeholder="Enter Product ID"
+            placeholder="Enter Book ID"
             value={productId}
             onChange={(e) => setProductId(e.target.value)}
           />

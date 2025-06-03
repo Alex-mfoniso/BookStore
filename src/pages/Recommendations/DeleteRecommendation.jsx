@@ -33,11 +33,11 @@
 //         style={{ marginTop: 24 }}
 //       >
 //         <Form.Item
-//           label="Product ID"
+//           label="Book ID"
 //           name="productId"
-//           rules={[{ required: true, message: "Please enter the Product ID" }]}
+//           rules={[{ required: true, message: "Please enter the Book ID" }]}
 //         >
-//           <Input type="number" placeholder="Enter Product ID" />
+//           <Input type="number" placeholder="Enter Book ID" />
 //         </Form.Item>
 
 //         <Form.Item>
@@ -59,7 +59,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify"; // Import toast from React-Toastify
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
-const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+const BASE_URL =
+  "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
 
 const DeleteRecommendation = () => {
   const [loading, setLoading] = useState(false);
@@ -101,11 +102,11 @@ const DeleteRecommendation = () => {
         style={{ marginTop: 24 }}
       >
         <Form.Item
-          label="Product ID"
+          label="Book ID"
           name="productId"
-          rules={[{ required: true, message: "Please enter the Product ID" }]}
+          rules={[{ required: true, message: "Please enter the Book ID" }]}
         >
-          <Input type="number" placeholder="Enter Product ID" />
+          <Input type="number" placeholder="Enter Book ID" />
         </Form.Item>
 
         <Form.Item>

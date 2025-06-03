@@ -15,6 +15,7 @@ import AddRecommendation from "./pages/Recommendations/AddRecommendation";
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify"; // Import ToastContainer
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
+import UpdBook from "./pages/Books/UpdBook";
 
 const App = () => {
   const location = useLocation(); // Get the current route
@@ -59,6 +60,7 @@ const App = () => {
               />
               <Route path="/review" element={<MyReview />} />
               <Route path="/book" element={<Book />} />
+              <Route path="/update-book/:id" element={<UpdBook/>} />
               <Route path="/recommendation" element={<BookRecommendation />} />
               <Route path="/composite" element={<Composite />} />
               <Route
