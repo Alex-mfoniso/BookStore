@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { List, Typography, Card, message, Spin } from "antd";
-import Getbyid from "./Getbyid";
-import ComId from "./Comid";
+
 
 
 const { Title } = Typography;
@@ -85,7 +84,7 @@ const Composite = () => {
           )}
         />
       )}
-    <ComId/>
+  
     </div>
   );
 };
