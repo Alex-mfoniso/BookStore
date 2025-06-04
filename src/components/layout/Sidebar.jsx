@@ -201,12 +201,12 @@ const Sidebar = ({ onCollapse }) => {
         <Menu.Item key="5" icon={<AppstoreOutlined />} onClick={() => navigate("/composite")}>
           Composite
         </Menu.Item>
-        <Menu.Item key="6" icon={<TeamOutlined />}>
+        {/* <Menu.Item key="6" icon={<TeamOutlined />}>
           Users
         </Menu.Item>
         <Menu.Item key="7" icon={<FileOutlined />}>
           Reports
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
     </Sider>
   );

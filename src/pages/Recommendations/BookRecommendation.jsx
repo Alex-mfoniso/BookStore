@@ -77,7 +77,7 @@ const BookRecommendation = ({ sidebarWidth }) => {
           View Recommendations
         </Button>
         <Button type="primary" onClick={() => setActiveComponent("GetRecommendationsByProduct")}>
-          Get Recommendations by Product
+          Get Recommendations by Book
         </Button>
         <Button type="primary" onClick={() => setActiveComponent("UpdateRecommendation")}>
           Update Recommendation
