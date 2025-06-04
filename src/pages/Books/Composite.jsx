@@ -34,6 +34,7 @@ const Composite = () => {
 
   return (
     <div style={{ maxWidth: 800, margin: "0 auto", paddingTop: 40 }}>
+      <Compoid/>
       <Title level={3}>Composite Book Data</Title>
       {loading ? (
         <Spin style={{ display: "block", margin: "20px auto" }} />
@@ -85,7 +86,7 @@ const Composite = () => {
           )}
         />
       )}
- <Compoid/>
+ 
     </div>
   );
 };
