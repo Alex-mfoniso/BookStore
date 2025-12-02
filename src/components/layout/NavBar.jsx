@@ -9,7 +9,7 @@ const { Search } = Input;
 const NavBar = ({ sidebarWidth }) => {
   const navigate = useNavigate();
   const [searchVisible, setSearchVisible] = useState(false);
-  const [notificationCount, setNotificationCount] = useState(3);
+  const [notificationCount, setNotificationCount] = useState();
   const [isMobile, setIsMobile] = useState(false); // State to track screen size
 
 

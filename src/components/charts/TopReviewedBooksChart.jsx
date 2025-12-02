@@ -224,7 +224,7 @@ const TopReviewedBooksChart = () => {
       aria-label="Top Reviewed Books Chart"
     >
       <Title level={3} style={{ textAlign: "center", marginBottom: 16 }}>
-        📚 Top 5 Most Reviewed Books
+        Top 5 Most Reviewed Books
       </Title>
       {loading ? (
         <Spin size="large" style={{ display: "block", margin: "40px auto" }} />

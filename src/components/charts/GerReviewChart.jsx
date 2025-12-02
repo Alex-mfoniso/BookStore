@@ -173,7 +173,7 @@ const GerReviewChart = () => {
       }}
     >
       <Title level={3} style={{ textAlign: "center", marginBottom: 16 }}>
-        📊 Reviews per Book (Vertical Chart)
+         Reviews per Book (Vertical Chart)
       </Title>
       {loading ? (
         <Spin style={{ display: "block", margin: "20px auto" }} />

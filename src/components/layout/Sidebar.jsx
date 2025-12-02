@@ -179,11 +179,13 @@ const Sidebar = ({ onCollapse }) => {
       <div style={{ height: 64, display: "flex", justifyContent: "center", alignItems: "center" }}>
         {!collapsed ? (
           <Title level={4} style={{ color: "#1890ff", margin: 0 }}>
-            My Dashboard
+            {/* My Dashboard */}
           </Title>
-        ) : (
-          <DashboardOutlined style={{ fontSize: 28, color: "#1890ff" }} />
-        )}
+        ) 
+        : (
+          <DashboardOutlined style={{ fontSize: 28, color: "#1890ff" , display:'none' }} />
+        )
+        }
       </div>
       <Menu defaultSelectedKeys={["1"]} mode="inline">
         <Menu.Item key="1" icon={<DashboardOutlined />} onClick={() => navigate("/dashboard")}>

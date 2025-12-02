@@ -117,7 +117,8 @@ import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 const { Title } = Typography;
 const { Option } = Select;
 
-const REVIEW_BASE_URL = "https://review-service-428s.onrender.com/reviews/book";
+// const REVIEW_BASE_URL = "https://review-service-428s.onrender.com/reviews/book";
+const REVIEW_BASE_URL = "http://9.169.178.97:8080/reviews/book";
 const DELETE_REVIEW_URL = "https://review-service-428s.onrender.com/reviews";
 const BOOKS_API_URL = "https://book-service-flbm.onrender.com/api/v1/books";
 
@@ -159,7 +160,9 @@ const GerReview = () => {
     try {
       await axios.delete(`${DELETE_REVIEW_URL}/${reviewId}`);
       toast.success(`Review with ID ${reviewId} deleted successfully!`);
-      setReviews((prevReviews) => prevReviews.filter((review) => review.id !== reviewId)); // Remove deleted review from state
+      setReviews((prevReviews) =>
+        prevReviews.filter((review) => review.id !== reviewId)
+      ); // Remove deleted review from state
     } catch (error) {
       console.error("Error deleting review:", error);
       toast.error("Failed to delete review. Please try again.");

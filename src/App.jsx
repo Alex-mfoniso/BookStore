@@ -75,7 +75,7 @@ const App = () => {
                 path="/add-recommendation"
                 element={<AddRecommendation />}
               />
-              <Route path="*" element={<Navigate to="/login" />} />{" "}
+              <Route path="*" element={<Navigate to="/login" />} />
               {/* Redirect unknown routes to "/login" */}
             </Routes>
           </div>

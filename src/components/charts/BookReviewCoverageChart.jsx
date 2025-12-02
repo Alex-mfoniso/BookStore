@@ -153,7 +153,7 @@ const BookReviewCoverageChart = () => {
       }}
     >
       <Title level={3} style={{ textAlign: "center", marginBottom: 16 }}>
-        📊 Book Review Coverage
+        Book Review Coverage
       </Title>
       {loading ? (
         <Spin style={{ display: "block", margin: "20px auto" }} />
