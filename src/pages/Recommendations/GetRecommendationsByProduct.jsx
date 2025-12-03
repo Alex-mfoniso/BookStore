@@ -4,7 +4,9 @@ import { Form, Input, Button, List, Typography, message } from "antd";
 
 const { Title } = Typography;
 const BASE_URL =
-  "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+  // "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+  // "  http://4.154.230.175/api/v1/bookrecommendations/"
+  "api/v1/bookrecommendations/"
 
 const GetRecommendationsByProduct = () => {
   const [productId, setProductId] = useState("");

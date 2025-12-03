@@ -76,7 +76,10 @@ import { toast } from "react-toastify"; // Import toast from React-Toastify
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
 const { Title } = Typography;
-const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendation";
+const BASE_URL = 
+// "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendation";
+// " http://4.154.230.175/api/v1/bookrecommendations"
+"/api/v1/bookrecommendations"
 
 const PostRecomm = () => {
   const [loading, setLoading] = useState(false);

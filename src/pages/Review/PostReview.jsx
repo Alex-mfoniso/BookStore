@@ -69,7 +69,9 @@ import { toast } from "react-toastify"; // Import toast from React-Toastify
 import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
 const { Title } = Typography;
-const BASE_URL = "https://review-service-428s.onrender.com/reviews";
+const BASE_URL = 
+// "https://review-service-428s.onrender.com/reviews";
+"http://9.169.178.97:8080/reviews"
 
 const PostReview = () => {
   const [loading, setLoading] = useState(false);

@@ -5,11 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    proxy: {
+   proxy: {
+      // This rule will match all API requests
       '/api': {
-        target: 'https://recommendationservice-3oal.onrender.com',
+        target: 'http://4.154.230.175', // <-- Your API Server
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        secure: false,
+        // rewrite: (path) => path.replace(/^\/api/, '/api') // Usually not needed if your endpoint starts with /api
       },
     },
   },

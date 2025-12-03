@@ -189,7 +189,10 @@ import { List, Button, Typography, message, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
-const BASE_URL = "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+const BASE_URL = 
+// "https://recommendationservice-3oal.onrender.com/api/v1/bookrecommendations";
+// " http://4.154.230.175/api/v1/bookrecommendations"
+"/api/v1/bookrecommendations"
 
 const MainRecom = ({ sidebarWidth }) => {
   const [recommendations, setRecommendations] = useState([]);

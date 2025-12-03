@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Form, Input, Button, message } from "antd";
 
-const BASE_URL = "https://book-service-flbm.onrender.com/api/v1/books";
+const BASE_URL = 
+// "https://book-service-flbm.onrender.com/api/v1/books";
+"http://9.169.178.97:8080/reviews/book"
 
 const Delrevid = () => {
   const [loading, setLoading] = useState(false);

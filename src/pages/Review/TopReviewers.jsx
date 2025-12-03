@@ -11,7 +11,8 @@ const TopReviewers = () => {
   const fetchTopReviewers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("https://review-service-428s.onrender.com/reviews");
+      // const response = await axios.get("https://review-service-428s.onrender.com/reviews");
+      const response = await axios.get("http://9.169.178.97:8080/reviews");
       const reviews = response.data;
 
       const reviewerCounts = reviews.reduce((acc, review) => {
